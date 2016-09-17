@@ -13,19 +13,19 @@ const draggableWidth:number = 100;
                     </div>
                </div>`,
     styles: [`
-                .container {
-                    height: ${containerSize}px;
-                    width: ${containerSize}px;
-                    background-color: lightgray;
-                }
-                .draggable {
-                    height: ${draggableHeight}px;
-                    width: ${draggableWidth}px;
-                    background-color: green;
-                    position: absolute;
-                    cursor: move;
-                }
-            `]
+        .container {
+            height: ${containerSize}px;
+            width: ${containerSize}px;
+            background-color: lightgray;
+        }
+        .draggable {
+            height: ${draggableHeight}px;
+            width: ${draggableWidth}px;
+            background-color: green;
+            position: absolute;
+            cursor: move;
+        }
+    `]
 })
 export class DragDropComponent implements AfterViewInit  {
 
@@ -51,7 +51,7 @@ export class DragDropComponent implements AfterViewInit  {
                 .takeUntil(mouseUp$))
             .concatAll();
 
-        drag$.subscribe(event => {
+        drag$.subscribe( (event: MouseEvent) => {
                 this.renderer.setElementStyle(draggable, 'left', event.clientX - (draggableWidth / 2) + "px");
                 this.renderer.setElementStyle(draggable, 'top', event.clientY - (draggableHeight / 2) + "px");
             },

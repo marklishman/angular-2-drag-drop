@@ -1,5 +1,6 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { DragDropComponent } from './drag-drop.component';
+import { AppModule } from './app.module';
 
-bootstrap(DragDropComponent);
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);
